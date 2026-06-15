@@ -432,8 +432,8 @@ export default function App() {
         <section id="guarantee" className="w-full py-10 md:py-14">
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }} transition={{ duration: 0.9, ease: 'easeOut' }}
-            className="liquid-glass rounded-3xl p-8 md:p-16 lg:p-20 text-center"
+            viewport={{ once: true }} transition={{ duration: 0.9, ease: 'easeOut' as const }}
+            className="glass-card-vivid rounded-3xl p-8 md:p-16 lg:p-20 text-center"
           >
             <SectionLabel>Risk Reversal</SectionLabel>
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6 md:mb-8 leading-[1.05]"
@@ -442,7 +442,7 @@ export default function App() {
               <br />
               <span className="text-white">Guarantee.</span>
             </h2>
-            <p className="text-base md:text-lg lg:text-xl text-white/75 max-w-2xl mx-auto leading-relaxed mb-10 md:mb-12"
+            <p className="text-base md:text-lg lg:text-xl text-white/85 max-w-2xl mx-auto leading-relaxed mb-10 md:mb-12"
               style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}>
               Eliminate overseas fabrication risk entirely. Every project is dry-laid
               and dimensionally verified via continuous 4K video on our factory floor
@@ -453,7 +453,7 @@ export default function App() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
-              <span className="text-[10px] md:text-xs uppercase tracking-widest text-white/60">
+              <span className="text-[10px] md:text-xs uppercase tracking-widest text-white/70">
                 Live 4K verification on every project
               </span>
             </div>

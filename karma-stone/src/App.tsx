@@ -480,17 +480,17 @@ export default function App() {
                 key={step.num}
                 initial={{ opacity: 0, y: 36 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.65, delay: i * 0.1, ease: 'easeOut' }}
-                className="glass-card rounded-2xl p-6 md:p-7 relative group"
+                transition={{ duration: 0.65, delay: i * 0.1, ease: 'easeOut' as const }}
+                className="glass-card-vivid rounded-2xl p-6 md:p-8 relative group"
               >
-                <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] text-white/40 block mb-5 md:mb-6">
+                <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] text-white/60 block mb-5 md:mb-6">
                   Step {step.num}
                 </span>
-                <h3 className="text-white text-base md:text-lg font-semibold mb-2 md:mb-3"
+                <h3 className="text-white text-base md:text-lg font-semibold mb-3"
                   style={{ fontFamily: 'Inter, sans-serif' }}>
                   {step.title}
                 </h3>
-                <p className="text-xs md:text-sm text-white/70 leading-relaxed"
+                <p className="text-sm md:text-base text-white/85 leading-relaxed"
                   style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}>
                   {step.body}
                 </p>

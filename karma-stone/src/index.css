@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+
+/* ============ CUSTOM FONT ============ */
+@font-face {
+    font-family: "Helvetica Regular";
+    src: url("https://db.onlinewebfonts.com/t/a64ff11d2c24584c767f6257e880dc65.eot");
+    src: url("https://db.onlinewebfonts.com/t/a64ff11d2c24584c767f6257e880dc65.eot?#iefix") format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/a64ff11d2c24584c767f6257e880dc65.woff2") format("woff2"),
+    url("https://db.onlinewebfonts.com/t/a64ff11d2c24584c767f6257e880dc65.woff") format("woff"),
+    url("https://db.onlinewebfonts.com/t/a64ff11d2c24584c767f6257e880dc65.ttf") format("truetype"),
+    url("https://db.onlinewebfonts.com/t/a64ff11d2c24584c767f6257e880dc65.svg#Helvetica Regular") format("svg");
+}
+
+
+/* ============ TAILWIND THEME TOKENS ============ */
+@theme {
+  --font-sans: "Helvetica Regular", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ============ RESET ============ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #0F0F0F;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ============ LIQUID GLASS ============ */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.01);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.15) 20%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0.15) 80%,
+    rgba(255, 255, 255, 0.45) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ============ GLASS CARD ============ */
+.glass-card {
+  background: rgba(248, 248, 248, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.glass-card:hover {
+  background: rgba(248, 248, 248, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* More opaque variant for sections where text needs to stand out */
+.glass-card-vivid {
+  background: rgba(10, 10, 10, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.glass-card-vivid:hover {
+  background: rgba(10, 10, 10, 0.65);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+/* ============ GREEN CTA ============ */
+.btn-green {
+  background: #1A3C2A;
+  color: #F8F8F8;
+  border: 1px solid #2D6A4F;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-green:hover {
+  background: #2D6A4F;
+  border-color: #40916C;
+  transform: translateY(-1px);
+}
+
+/* ============ CTA PILL (nav & hero) ============ */
+.cta-pill {
+  background: linear-gradient(135deg, #163325 0%, #2D6A4F 100%);
+  color: #F8F8F8;
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  box-shadow: 0 0 20px rgba(45, 106, 79, 0.2), inset 0 1px 0 rgba(255,255,255,0.07);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.cta-pill:hover {
+  background: linear-gradient(135deg, #1e4d36 0%, #40916C 100%);
+  box-shadow: 0 0 32px rgba(52, 211, 153, 0.3), inset 0 1px 0 rgba(255,255,255,0.12);
+  transform: translateY(-1px);
+}
+
+/* ============ MOBILE TOUCH ============ */
+button, a {
+  touch-action: manipulation;
+}
+
+/* ============ FAQ ACCORDION ============ */
+.faq-item {
+  background: rgba(12, 12, 12, 0.5);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+  background: rgba(18, 18, 18, 0.65);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.faq-item--open {
+  background: rgba(24, 20, 10, 0.65);
+  border-color: rgba(251, 191, 36, 0.25);
+  box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.08), 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* ============ SCROLLBAR ============ */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #0F0F0F;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+/* ============ SELECTION ============ */
+::selection {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* ============ KEN BURNS ZOOM ============ */
+@keyframes kenBurns {
+  0%   { transform: scale(1.0) translate(0%, 0%); }
+  25%  { transform: scale(1.06) translate(-0.8%, -0.5%); }
+  50%  { transform: scale(1.10) translate(0.5%, -1%); }
+  75%  { transform: scale(1.06) translate(0.8%, 0.5%); }
+  100% { transform: scale(1.0) translate(0%, 0%); }
+}
+
+.bg-zoom-img {
+  animation: kenBurns 22s ease-in-out infinite;
+  transform-origin: center center;
+}

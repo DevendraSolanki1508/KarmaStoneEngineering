@@ -243,9 +243,9 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 export default function App() {
   const heroRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
-  const videoScale     = useTransform(scrollYProgress, [0, 1], [1, 1.12])
-  const videoOpacity   = useTransform(scrollYProgress, [0, 0.6], [1, 0])
-  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.35, 0.85])
+  const videoOpacity   = useTransform(scrollYProgress, [0, 0.65], [1, 0])
+  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.3, 0.88])
+  const bgBlur         = useTransform(scrollYProgress, [0, 0.7], ['blur(0px)', 'blur(14px)'])
 
   return (
     <main
@@ -253,8 +253,10 @@ export default function App() {
       style={{ fontFamily: '"Helvetica Regular", Inter, sans-serif' }}
     >
       {/* ── Background Image ── */}
-      <motion.div style={{ scale: videoScale, opacity: videoOpacity, position: 'fixed', inset: 0, zIndex: 0 }}>
-        <BackgroundImage />
+      <motion.div style={{ opacity: videoOpacity, position: 'fixed', inset: 0, zIndex: 0 }}>
+        <motion.div style={{ filter: bgBlur, position: 'absolute', inset: 0 }}>
+          <BackgroundImage />
+        </motion.div>
       </motion.div>
 
       {/* ── Dynamic overlay ── */}
@@ -291,27 +293,26 @@ export default function App() {
         >
           <motion.p
             custom={0.1} variants={fadeUp} initial="hidden" animate="visible"
-            className="text-[10px] md:text-xs uppercase tracking-[0.4em] text-white/80 mb-6 md:mb-8"
+            className="text-[10px] md:text-xs uppercase tracking-[0.4em] text-white/90 mb-6 md:mb-8 text-shadow-hero"
           >
             Precision Milling · India
           </motion.p>
 
           <motion.h1
             custom={0.25} variants={fadeUp} initial="hidden" animate="visible"
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white leading-[1.04] max-w-5xl px-2"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white leading-[1.04] max-w-5xl px-2 text-shadow-hero"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
           >
             High-Tolerance
             <br />
-            {/* "Architectural Stone" — boosted from white/40 → white/75 */}
-            <span className="text-white/75">Architectural Stone</span>
+            <span className="text-white/80">Architectural Stone</span>
             <br />
             Milling.
           </motion.h1>
 
           <motion.p
             custom={0.42} variants={fadeUp} initial="hidden" animate="visible"
-            className="mt-6 md:mt-8 text-base md:text-lg lg:text-xl text-white/75 max-w-md md:max-w-xl leading-relaxed px-2"
+            className="mt-6 md:mt-8 text-base md:text-lg lg:text-xl text-white/90 max-w-md md:max-w-xl leading-relaxed px-2 text-shadow-hero"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}
           >
             Complex 3D parametric and fluted assemblies.

@@ -174,16 +174,20 @@ button, a {
   color: white;
 }
 
-/* ============ KEN BURNS ZOOM ============ */
-@keyframes kenBurns {
-  0%   { transform: scale(1.0) translate(0%, 0%); }
-  25%  { transform: scale(1.06) translate(-0.8%, -0.5%); }
-  50%  { transform: scale(1.10) translate(0.5%, -1%); }
-  75%  { transform: scale(1.06) translate(0.8%, 0.5%); }
-  100% { transform: scale(1.0) translate(0%, 0%); }
+/* ============ ONE-SHOT SLOW ZOOM (no loop, no sudden cut) ============ */
+@keyframes slowZoom {
+  from { transform: scale(1.0); }
+  to   { transform: scale(1.05); }
 }
 
 .bg-zoom-img {
-  animation: kenBurns 22s ease-in-out infinite;
+  animation: slowZoom 22s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   transform-origin: center center;
+}
+
+/* ============ HERO TEXT SHADOW ============ */
+.text-shadow-hero {
+  text-shadow:
+    0 2px 28px rgba(0, 0, 0, 0.90),
+    0 1px 6px  rgba(0, 0, 0, 0.75);
 }

@@ -230,7 +230,7 @@ function LogoMark({ size = 24, className = '' }: { size?: number; className?: st
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-xs uppercase tracking-[0.35em] text-white/55 mb-4">
+    <p className="text-xs md:text-sm uppercase tracking-[0.28em] text-white/80 font-medium mb-4">
       {children}
     </p>
   )
@@ -245,7 +245,6 @@ export default function App() {
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
   const videoOpacity   = useTransform(scrollYProgress, [0, 0.65], [1, 0])
   const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.3, 0.88])
-  const bgBlur         = useTransform(scrollYProgress, [0, 0.7], ['blur(0px)', 'blur(14px)'])
 
   return (
     <main
@@ -254,9 +253,7 @@ export default function App() {
     >
       {/* ── Background Image ── */}
       <motion.div style={{ opacity: videoOpacity, position: 'fixed', inset: 0, zIndex: 0 }}>
-        <motion.div style={{ filter: bgBlur, position: 'absolute', inset: 0 }}>
-          <BackgroundImage />
-        </motion.div>
+        <BackgroundImage />
       </motion.div>
 
       {/* ── Dynamic overlay ── */}
@@ -312,7 +309,7 @@ export default function App() {
 
           <motion.p
             custom={0.42} variants={fadeUp} initial="hidden" animate="visible"
-            className="mt-6 md:mt-8 text-base md:text-lg lg:text-xl text-white/90 max-w-md md:max-w-xl leading-relaxed px-2 text-shadow-hero"
+            className="mt-6 md:mt-8 text-base md:text-lg lg:text-xl text-white max-w-md md:max-w-xl leading-relaxed px-2 text-shadow-hero"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}
           >
             Complex 3D parametric and fluted assemblies.
@@ -370,10 +367,10 @@ export default function App() {
             {/* Secondary link */}
             <button
               onClick={() => scrollTo('process')}
-              className="flex items-center gap-2 text-[10px] md:text-xs uppercase tracking-widest text-white/50 hover:text-white/80 transition-colors duration-300"
-              style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+              className="flex items-center gap-2 text-xs md:text-sm uppercase tracking-widest text-white/75 hover:text-white transition-colors duration-300 text-shadow-hero"
+              style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
             >
-              See Our Process <ArrowDown size={11} />
+              See Our Process <ArrowDown size={12} />
             </button>
           </motion.div>
 
